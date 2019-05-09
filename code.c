@@ -77,7 +77,7 @@ int showMenu() {
             if (strlen(output_location) != 0 && strlen(input_location) != 0) {
                 dumpHex(input_location, output_location);
             } else {
-                printf("Output location is NOT SET.\nPlease set output location by using menu no.1\n");
+                printf("Output location is NOT SET.\nPlease set output location by using menu no.2\n");
                 printf("Press 1 to continue...  ");
                 scanf("%d", &dummy);
             }
