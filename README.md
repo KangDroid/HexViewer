@@ -21,3 +21,8 @@ This is function-file for dumping hex information to plain text file. Basically 
 ## showHex.c
 ----
 As well is dumpHex, it is also function-file with showing hex data to STDOUT(Console) - printf.
+
+# TODO
+----
+- File extension Improvements: Using File signature & file structure
+- Print each address when viewing the file.
