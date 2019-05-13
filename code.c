@@ -116,6 +116,7 @@ int determineSize(FILE *file_input, long offset_seek) {
 void clearScreen() {
     #if defined(_WIN32) || defined(__CYGWIN__) || defined(_WIN64)
     // Clear Console for Windows
+    system("cls");
     #else
     system("clear && printf '\e[3J'");
     #endif
