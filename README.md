@@ -25,4 +25,3 @@ As well is dumpHex, it is also function-file with showing hex data to STDOUT(Con
 # TODO
 ----
 - File extension Improvements: Using File signature & file structure
-- Print each address when viewing the file.
