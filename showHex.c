@@ -49,7 +49,7 @@ void showHex(char *input_path) {
                 }
             }
             printf("%02x ", c[i]);
-            if (c[i] == 10) {
+            if (c[i] < 32 || c[i] > 126) {
                 arr[char_arr_counter] = 46;
             } else {
                 arr[char_arr_counter] = c[i];
