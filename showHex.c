@@ -4,6 +4,7 @@
 void showHex(char *input_path) {
     FILE *input_file;
     int nFileSize, dummy;
+    int co = 0;
 
     input_file = fopen(input_path, "r");
     if (input_file == NULL) {
@@ -24,6 +25,15 @@ void showHex(char *input_path) {
 
         //Show file data in hex
         printf("\nHex data for: %s\n", input_path);
+        printf("            ");
+        for (int a = 0; a < 16; a++) {
+            if (a % 4 == 0 && a != 0) {
+                printf("  ");
+            }
+            printf(ANSI_COLOR_YELLOW"%02x ", a);
+        }
+        printf("\n");
+        printf("%010x: "ANSI_COLOR_RESET, co);
         for (int i = 0; i < nFileSize; i++) {
             //Every count 8, puts backslash-n
             if (i != 0) {
@@ -32,6 +42,7 @@ void showHex(char *input_path) {
                 }
                 if (i % 16 == 0) {
                     printf("\n");
+                    printf(ANSI_COLOR_YELLOW"%010x: "ANSI_COLOR_RESET, (co = co + 16));
                 }
             }
             printf("%02x ", c[i]);
