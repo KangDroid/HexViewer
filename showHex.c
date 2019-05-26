@@ -30,7 +30,7 @@ void showHex(char *input_path) {
                 if (i % 4 == 0) {
                     printf("  ");
                 }
-                if (i % 32 == 0) {
+                if (i % 16 == 0) {
                     printf("\n");
                 }
             }
