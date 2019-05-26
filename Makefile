@@ -1,17 +1,15 @@
 CC=gcc-8
-CFLAGS=-Wall -O3
+CFLAGS=-g -Wall -O3
+TARGET=app.out
+OBJS=code.o \
+	dumpHex.o \
+	showHex.o
 
-all: code.o dumpHex.o showHex.o
-	gcc-8 $(CFLAGS) -o app.out code.o dumpHex.o showHex.o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-code.o:
-	gcc-8 $(CFLAGS) -c -o code.o code.c
-
-dumpHex.o:
-	gcc-8 $(CFLAGS) -c -o dumpHex.o dumpHex.c
-
-showHex.o:
-	gcc-8 $(CFLAGS) -c -o showHex.o showHex.c
+all: $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
 clean:
-	rm -rf ./*.out ./*.o
+	rm -rf ./*.out ./*.o ./*.dSYM
