@@ -14,3 +14,4 @@ void showHex(char *input_path);
 void dumpHex(char *input_path, char *output_path);
 int showMenu();
 void clearScreen();
+void resetArray(char *array);

@@ -4,7 +4,8 @@
 void showHex(char *input_path) {
     FILE *input_file;
     int nFileSize, dummy;
-    int co = 0;
+    int co = 0, char_arr_counter = 0;
+    char arr[60] = {0,};
 
     input_file = fopen(input_path, "r");
     if (input_file == NULL) {
@@ -41,16 +42,30 @@ void showHex(char *input_path) {
                     printf("  ");
                 }
                 if (i % 16 == 0) {
-                    printf("\n");
+                    printf("   %s\n", arr);
                     printf(ANSI_COLOR_YELLOW"%010x: "ANSI_COLOR_RESET, (co = co + 16));
+                    resetArray(arr);
+                    char_arr_counter = 0;
                 }
             }
             printf("%02x ", c[i]);
+            if (c[i] == 10) {
+                arr[char_arr_counter] = 46;
+            } else {
+                arr[char_arr_counter] = c[i];
+            }
+            char_arr_counter++;
         }
         printf("\n\n");
 
         // if we don't close it, memory leaks...
         fclose(input_file);
         free(c);
+    }
+}
+
+void resetArray(char *array) {
+    for (int i = 0; i < 60; i++) {
+        array[i] = 0;
     }
 }
